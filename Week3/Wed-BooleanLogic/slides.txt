@@ -1,0 +1,128 @@
+Here is a slide-by-slide JS demo to accompany your presentation on null and conditionals in JavaScript:
+
+**Slide 1: Null**
+
+```javascript
+// Demonstrate the concept of null
+let x = null;
+console.log(x); // Output: null
+
+if (x === null) {
+  console.log("x is null");
+} else {
+  console.log("x is not null");
+}
+```
+
+**Slide 2: Synonyms for Null**
+
+```javascript
+// Demonstrate the synonyms for null
+let x = undefined;
+console.log(x); // Output: undefined
+
+if (x === undefined) {
+  console.log("x is undefined");
+} else {
+  console.log("x is not undefined");
+}
+
+let y = NaN;
+console.log(y); // Output: NaN
+
+if (y !== y) { // NaN is not equal to itself
+  console.log("y is NaN");
+} else {
+  console.log("y is not NaN");
+}
+```
+
+**Slide 3: Using Null with Conditionals**
+
+```javascript
+// Demonstrate using null in a conditional statement
+let account = {
+  profilePic: null
+};
+
+if (account.profilePic === null) {
+  showDefaultPicture();
+} else {
+  showAccountPicture(account.profilePic);
+}
+```
+
+**Slide 4: Comparisons**
+
+```javascript
+// Demonstrate comparison operators
+let x = 5;
+let y = 3;
+
+console.log(x < y); // Output: false
+console.log(x > y); // Output: true
+
+if (x <= y) {
+  console.log("x is less than or equal to y");
+} else if (x >= y) {
+  console.log("x is greater than or equal to y");
+}
+```
+
+**Slide 5: Using If Statements to Set Up Conditions**
+
+```javascript
+// Demonstrate using an if statement to set up a condition
+let age = 17;
+
+if (age < 18) {
+  console.log("Sorry, you can't vote yet.");
+} else {
+  console.log("You're old enough to vote!");
+}
+```
+
+**Slide 6: Truthy and Falsy**
+
+```javascript
+// Demonstrate truthy and falsy values
+let x = true;
+console.log(x); // Output: true
+
+if (x) {
+  console.log("x is true");
+} else {
+  console.log("x is false");
+}
+
+let y = 0;
+console.log(y); // Output: 0
+
+if (y) {
+  console.log("y is truthy");
+} else {
+  console.log("y is falsy");
+}
+```
+
+**Slide 7: Truthy and Falsy Cont.**
+
+```javascript
+// Demonstrate more truthy and falsy values
+let x = "";
+console.log(x); // Output: ""
+
+if (x) {
+  console.log("x is truthy");
+} else {
+  console.log("x is falsy");
+}
+
+let y = [];
+console.log(y); // Output: []
+
+if (y) {
+  console.log("y is truthy");
+} else {
+  console Logan;
+;
