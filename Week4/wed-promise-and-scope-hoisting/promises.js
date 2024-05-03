@@ -13,4 +13,5 @@
   let time;
   time = await getTime();
   console.log("The time is " + time);
-})();
+})(); //this is what is called an iffe immediate invoked function expression
+//( //func created here)() // called after
