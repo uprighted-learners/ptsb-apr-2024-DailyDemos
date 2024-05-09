@@ -63,3 +63,21 @@ allCars.forEach(key => {
 //get the average
 console.log(totalMpg/allCars.length)
 
+
+
+//this scope
+const obj = {
+  name: "John",
+  // Normal function declaration
+  sayHelloNormal: function () {
+    console.log("Hello, my name is " + this.name);
+  },
+  // Arrow function declaration - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+  sayHelloArrow: () => {
+    console.log("Hello, my name is " + this.name); // "this" refers to the outer scope
+  },
+};
+
+// Call the methods
+obj.sayHelloNormal(); // Output: Hello, my name is John
+obj.sayHelloArrow(); // Output: Hello, my name is undefined //dont use arrow function on objects where you need to use this
