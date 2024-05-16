@@ -9,15 +9,16 @@
 
 //class definition
 class Person {
+  //use PascalCase for the classnames
   //constructor helps us
   // say how we want to setup our object
   constructor(greeting) {
-    this.greeting = greeting;
+    this.greeting = greeting; //this refers back to that object instance and allow us refer to the property on the object
   }
 }
 
 // using our class to create an object instance
-let bob = new Person("Howdy y'all");
+let bob = new Person("Howdy y'all"); // you are basically calling the constructor here
 
 //new Person("Howdy y'all")
 // did the following for us
@@ -115,12 +116,10 @@ console.log(myCircle.getArea());
 console.log(myCircle.getCircumference());
 console.log(myCircle.radius);
 
-
-
-class MathTwo{
-    static add(x,y){
-        console.log(x + y)
-    }
+class MathTwo {
+  static add(x, y) {
+    console.log(x + y);
+  }
 }
 
-MathTwo.add(1,2)
+MathTwo.add(1, 2);
