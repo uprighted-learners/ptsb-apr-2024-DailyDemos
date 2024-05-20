@@ -3,7 +3,7 @@
 const condition = false;
 if (condition) {
   //1 - skipped
-} else {
+{
   //2 - run this code
   // pretend code here
 }
