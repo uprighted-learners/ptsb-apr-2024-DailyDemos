@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Capture and Bubbling</title>
+    <style>
+      .outer {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 20px;
+      }
+      .middle {
+        width: 150px;
+        height: 150px;
+        background-color: lightgreen;
+        padding: 20px;
+      }
+      .inner {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      Outer
+      <div class="middle">
+        Middle
+        <div class="inner">Inner</div>
+      </div>
+    </div>
+
+    <script>
+      const outer = document.querySelector(".outer");
+      const middle = document.querySelector(".middle");
+      const inner = document.querySelector(".inner");
+
+      outer.addEventListener(
+        "click",
+        () => {
+          console.log("Outer clicked - Event Capture");
+        },
+        true
+      );
+
+      middle.addEventListener(
+        "click",
+        () => {
+          console.log("Middle clicked - Event Capture");
+        },
+        true
+      );
+
+      inner.addEventListener(
+        "click",
+        () => {
+          console.log("Inner clicked - Event Capture");
+        },
+        true
+      );
+
+      outer.addEventListener("click", () => {
+        console.log("Outer clicked - Event Bubbling");
+      });
+
+      middle.addEventListener("click", () => {
+        console.log("Middle clicked - Event Bubbling");
+      });
+
+      inner.addEventListener("click", () => {
+        console.log("Inner clicked - Event Bubbling");
+      });
+    </script>
+  </body>
+</html>
