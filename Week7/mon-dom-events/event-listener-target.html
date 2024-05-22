@@ -1,0 +1,31 @@
+<button type="button" id="presto">Presto...</button>
+<button type="button" id="abra">Abra...</button>
+<script>
+  let prestoButton = document.getElementById("presto");
+  let abraButton = document.getElementById("abra");
+  let body = document.querySelector("body");
+
+  function sayMagicWord(event) {
+    if (event.target === prestoButton) {
+      alert("Change-o!");
+    } else if (event.target === abraButton) {
+      alert("Cadabra!");
+    } else {
+      alert("Shazam!");
+    }
+    console.log({ event }); // for debugging
+  }
+
+  prestoButton.addEventListener("click", sayMagicWord);
+  abraButton.addEventListener("click", sayMagicWord);
+
+  // listen to entire document
+  // on key down press fire the listener callback
+  document.addEventListener("keydown", (event) => {
+    //only if "j" key pressed
+    if (event.key === "j") {
+      // call sayMagicWord
+      sayMagicWord(event);
+    }
+  });
+</script>
