@@ -1,0 +1,13 @@
+[
+    {
+        "id":1 
+    }
+]
+
+
+<data>
+    <userId>1</userId>
+    <id>1</id>
+    <title>My most amazing post</title>
+    <body>This is my first post, isn't it great. Maybe I'll write some more.</body>
+</data>
