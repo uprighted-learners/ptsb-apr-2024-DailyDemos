@@ -15,12 +15,12 @@
 // Accessing all elements and other constants
 const btn = document.getElementById("submit");
 const url = "https://pokeapi.co/api/v2/pokemon/";
-const name = ;
-const weight = ;
-const img = ;
-const card = ;
-const statsContainer = ;
-const mainContainer = ;
+const name = document.querySelector(".card > h3");
+const weight = document.querySelector(".card > p");
+const img = document.getElementById("poke-img");
+const card = document.getElementsByClassName("card")[0];
+const statsContainer = document.getElementsByClassName("stats")[0];
+const mainContainer = document.getElementsByClassName("main-container")[0];
 console.log(statsContainer);
 
 // Helper function
@@ -29,19 +29,62 @@ const capitalize = (str) => {
 };
 
 // Error handling for when things go wrong
-const renderError = (error) => {};
+const renderError = (error) => {
+  card.style.display = "none";
+  const h2 = document.createElement("h2");
+  h2.textContent = error;
+  mainContainer.appendChild(h2);
+};
 
 // Deals with all of the page rendering
-const render = (data) => {};
+const render = (data) => {
+  console.log(data.stats);
+  name.textContent = `Name: ${capitalize(data.name)}`;
+  weight.textContent = "Weight: " + data.weight + " lbs";
+  img.src = data.sprites.front_shiny;
+  // Checks if statsContainer is full and removes every child until null
+  while (statsContainer.firstChild) {
+    statsContainer.removeChild(statsContainer.firstElementChild);
+  }
+   data.stats.forEach((stat) => {
+     switch (true) {
+       case stat.stat.name == "hp":
+         const p = document.createElement("p");
+         p.textContent = `HP: ${stat.base_stat}`;
+         statsContainer.appendChild(p);
+         break;
+       case stat.stat.name == "attack":
+         const p2 = document.createElement("p");
+         p2.textContent = `Attack: ${stat.base_stat}`;
+         statsContainer.appendChild(p2);
+         break;
+       case stat.stat.name == "defense":
+         const p3 = document.createElement("p");
+         p3.textContent = `Defense: ${stat.base_stat}`;
+         statsContainer.appendChild(p3);
+     }
+   });
+};
 
 // Fetches content based pokemon from event listener
 const getData = async (pokemon) => {
-  // put the fetch call here
-  // use the url
+  try {
+    const res = await fetch(`${url}${pokemon}`);
+    const data = await res.json();
+    render(data);
+  } catch (err) {
+    console.log(err);
+    renderError(err);
+  }
 };
+//getData("pikachu");
 
-// Triggers everything else once a click has been detected
+// // Triggers everything else once a click has been detected
 btn.addEventListener("click", (evt) => {
-  // call getData using value on the event
-  // might be a bit tricky
+  evt.target.form[0].value = "pikachu";
+  evt.preventDefault(); //prevent that refresh
+  getData(evt.target.form[0].value);
 });
+
+var event = new Event("click");
+btn.dispatchEvent(event);
