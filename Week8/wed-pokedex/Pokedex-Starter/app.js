@@ -15,16 +15,18 @@
 // Accessing all elements and other constants
 const btn = document.getElementById("submit");
 const url = "https://pokeapi.co/api/v2/pokemon/";
-const name ;
-const weight;
-const img;
-const card;
-const statsContainer;
-const mainContainer;
+const name = ;
+const weight = ;
+const img = ;
+const card = ;
+const statsContainer = ;
+const mainContainer = ;
 console.log(statsContainer);
 
 // Helper function
-const capitalize = (str) => {};
+const capitalize = (str) => {
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
+};
 
 // Error handling for when things go wrong
 const renderError = (error) => {};
@@ -33,7 +35,13 @@ const renderError = (error) => {};
 const render = (data) => {};
 
 // Fetches content based pokemon from event listener
-const getData = async (pokemon) => {};
+const getData = async (pokemon) => {
+  // put the fetch call here
+  // use the url
+};
 
 // Triggers everything else once a click has been detected
-btn.addEventListener("click", (evt) => {});
+btn.addEventListener("click", (evt) => {
+  // call getData using value on the event
+  // might be a bit tricky
+});
