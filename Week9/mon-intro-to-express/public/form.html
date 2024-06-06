@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- Dont use action this way use prevent default with a listener instead -->
+    <!-- look instead at script.js -->
+    <!-- <form action="http://127.0.0.1:4000/address" method="POST"> -->
+    <form id="address-form">
+      <!-- name -->
+      <!-- address -->
+      <!-- phone number -->
+      <label>
+        Name:
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value="Alice"
+          autocomplete="off"
+        />
+      </label>
+
+      <label>
+        Address:
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value="123 5th Street"
+          autocomplete="off"
+        />
+      </label>
+
+      <label>
+        Phone:
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          value="555-555-5555"
+          autocomplete="off"
+        />
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
