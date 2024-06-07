@@ -2,10 +2,18 @@
 
 async function postAddressData(formData) {
   //fetch command sent off from the form data
-  const url = "127.0.0.1:4000/address";
+  // what causes this to refresh? try to figure it out.
+
+  let headersList = {
+    Accept: "*/*",
+    "Content-Type": "application/json",
+  };
+
+  const url = "http://127.0.0.1:4000/address";
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(formData),
+    headers: headersList,
   });
 
   return response.json();
@@ -19,15 +27,12 @@ const addressFormElement = document.querySelector("#address-form");
 
 addressFormElement.addEventListener("submit", async (e) => {
   e.preventDefault();
-  //get values from our form
-  // fix this  part
-  //const data = new FormData(addressFormElement);
 
-  const data = {
-    name: "Alice",
-    address: "123 5th Street",
-    phone: "555-555-5555",
-  };
+  //get values from our form
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
   //pass values into our postAddressData
-  await postAddressData(data);
+  const response = await postAddressData(data);
+  console.log(response); // handle the response
 });

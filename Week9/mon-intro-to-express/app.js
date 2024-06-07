@@ -1,12 +1,16 @@
 // add express so we can use it
 const express = require("express");
+const cors = require("cors");
 //test that express is working, comment line 4 after this step
 //console.log(express);
 // setup app
 const app = express();
+//setup cors
+app.use(cors());
 //console.log(app);
 // initial setup
 // port
+
 const PORT = 4000;
 // host
 const HOST = "127.0.0.1"; // localhost - or your computer
@@ -69,14 +73,72 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/address", (req, res) => {
-  console.log(req);
+  console.log(req.body);
+
+  // how do we send back json
+
+  // 1. send back the object
+  // 2. Create a literal {} and send that object back
+  // 3. stringify Json
+  // 4. String as JSON
+
+  const responseJson = {
+    succeeded: true,
+    saved: true,
+  };
+
+  res.json(responseJson);
 });
 
+// PARAMS
+//path segment example
+//127.0.0.1:4000/UprightEducation/til/blob/master/README.md
+app.get("/:user/:repo/:section/:branch/:filepath", (req, res) => {
+  console.log(req.params);
+  res.send("Thanks for your url, it was delicious");
+});
+
+// more realistic example
+// similar to swapi.dev
+app.get("/api/people/:id", (req, res) => {
+  const id = req.params.id;
+  // grab the info from db based off of id
+
+  res.send("Info from server for person: " + id);
+});
+// END PARAMS
+
+// QUERY STRING
+// SEARCH EXAMPLE
+app.get("/search", (req, res) => {
+  console.log("Its alive");
+
+  const { language, searchTerms, timePeriod } = req.query;
+
+  if (language) {
+    // set up the language
+    console.log(`Language is ${language}`);
+
+    //some switch statement to check all language types
+  }
+  if (searchTerms) {
+    console.log(`You Search for ${searchTerms}`);
+  }
+  if (timePeriod) {
+    console.log(`Only pulling records from: ${timePeriod}`);
+  }
+  res.send("Here are your results!");
+});
+
+// END QUERY STRING
+
+// STATIC FILES
 // load static files from your server directory
 // public gets routed to root
 // to access public/index.html
 // 127.0.0.1:4000/index.html not public/index.html
 app.use(express.static(__dirname + "/public"));
+// END STATIC FILES
 
 // if we can't find a route then log here
 
@@ -88,3 +150,8 @@ app.use((req, res, next) => {
 app.listen(PORT, HOST, () =>
   console.log(`Server listening on ${HOST}:${PORT}`)
 );
+
+// if you ever get this message
+//Error: listen EADDRINUSE: address already in use 127.0.0.1:4000
+// 1. try closing all of your open terminals
+// 2. npx kill-port 4000 //or whatever port is in use
