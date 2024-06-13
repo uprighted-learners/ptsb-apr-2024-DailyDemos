@@ -1,0 +1,96 @@
+{
+  "monsters": [
+    {
+      "name": "Slappy the Dummy",
+      "books": [
+        "Night of the Living Dummy",
+        "Night of the Living Dummy II",
+        "Night of the Living Dummy III",
+        "Bride of the Living Dummy",
+        "Slappy's Nightmare",
+        "Revenge of the Living Dummy"
+      ]
+    },
+    {
+      "name": "Monster Blood",
+      "books": [
+        "Monster Blood",
+        "Monster Blood II",
+        "Monster Blood III",
+        "Monster Blood IV"
+      ]
+    },
+    {
+      "name": "The Haunted Mask",
+      "books": ["The Haunted Mask", "The Haunted Mask II"]
+    },
+    {
+      "name": "The Werewolf",
+      "books": ["The Werewolf of Fever Swamp"]
+    },
+    {
+      "name": "The Mummy",
+      "books": ["The Curse of the Mummy's Tomb", "Return of the Mummy"]
+    },
+    {
+      "name": "The Invisible Boy",
+      "books": ["Let's Get Invisible!"]
+    },
+    {
+      "name": "The Abominable Snowman",
+      "books": ["The Abominable Snowman of Pasadena"]
+    },
+    {
+      "name": "The Blob",
+      "books": ["Monster Blood"]
+    },
+    {
+      "name": "The Scarecrows",
+      "books": ["The Scarecrow Walks at Midnight"]
+    },
+    {
+      "name": "The Giant Praying Mantis",
+      "books": ["A Shocker on Shock Street"]
+    },
+    {
+      "name": "The Living Bees",
+      "books": ["Why I'm Afraid of Bees"]
+    },
+    {
+      "name": "The Giant Worms",
+      "books": ["Go Eat Worms!"]
+    },
+    {
+      "name": "The Headless Ghost",
+      "books": ["The Headless Ghost"]
+    },
+    {
+      "name": "The Lawn Gnomes",
+      "books": ["Revenge of the Lawn Gnomes"]
+    },
+    {
+      "name": "The Evil Camera",
+      "books": ["Say Cheese and Die!", "Say Cheese and Die—Again!"]
+    },
+    {
+      "name": "The Shrunken Head",
+      "books": ["How I Got My Shrunken Head"]
+    },
+    {
+      "name": "The Phantom",
+      "books": ["Phantom of the Auditorium"]
+    },
+    {
+      "name": "The Living Dummies",
+      "books": ["The Ghost Next Door"]
+    },
+    {
+      "name": "The Evil Plants",
+      "books": ["Stay Out of the Basement"]
+    },
+    {
+      "name": "The Horrors of HorrorLand",
+      "books": ["One Day at HorrorLand"]
+    }
+  ]
+}

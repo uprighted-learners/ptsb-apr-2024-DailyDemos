@@ -1,0 +1,104 @@
+{
+  "merchandise": [
+    {
+      "item": "Goosebumps Board Game",
+      "price": "$24.99",
+      "itemType": "Game"
+    },
+    {
+      "item": "Slappy Ventriloquist Dummy",
+      "price": "$69.99",
+      "itemType": "Toy"
+    },
+    {
+      "item": "Goosebumps T-Shirt",
+      "price": "$19.99",
+      "itemType": "Clothing"
+    },
+    {
+      "item": "Monster Blood Slime Kit",
+      "price": "$12.99",
+      "itemType": "Toy"
+    },
+    {
+      "item": "Goosebumps Backpack",
+      "price": "$29.99",
+      "itemType": "Accessory"
+    },
+    {
+      "item": "Haunted Mask Replica",
+      "price": "$39.99",
+      "itemType": "Replica"
+    },
+    {
+      "item": "Goosebumps Movie DVD",
+      "price": "$9.99",
+      "itemType": "Media"
+    },
+    {
+      "item": "Werewolf of Fever Swamp Action Figure",
+      "price": "$14.99",
+      "itemType": "Toy"
+    },
+    {
+      "item": "Monster Blood Book Series Set",
+      "price": "$49.99",
+      "itemType": "Book Set"
+    },
+    {
+      "item": "Goosebumps Sticker Pack",
+      "price": "$5.99",
+      "itemType": "Stationery"
+    },
+    {
+      "item": "Slappy Funko Pop! Figure",
+      "price": "$9.99",
+      "itemType": "Collectible"
+    },
+    {
+      "item": "Goosebumps Poster",
+      "price": "$7.99",
+      "itemType": "Decor"
+    },
+    {
+      "item": "Night of the Living Dummy Keychain",
+      "price": "$3.99",
+      "itemType": "Accessory"
+    },
+    {
+      "item": "Goosebumps Graphic Novel",
+      "price": "$14.99",
+      "itemType": "Book"
+    },
+    {
+      "item": "Monster Blood Backpack Clip",
+      "price": "$2.99",
+      "itemType": "Accessory"
+    },
+    {
+      "item": "Goosebumps Trading Cards",
+      "price": "$3.99 per pack",
+      "itemType": "Collectible"
+    },
+    {
+      "item": "Slappy Socks",
+      "price": "$9.99",
+      "itemType": "Clothing"
+    },
+    {
+      "item": "Haunted Mask Replica Keychain",
+      "price": "$4.99",
+      "itemType": "Accessory"
+    },
+    {
+      "item": "Goosebumps Mug",
+      "price": "$12.99",
+      "itemType": "Kitchenware"
+    },
+    {
+      "item": "Monster Blood Plush Toy",
+      "price": "$19.99",
+      "itemType": "Toy"
+    }
+  ]
+}
