@@ -21,9 +21,8 @@
    "dev": "nodemon"
    ```
 6. do the standard setup - see app.js
-7. 
-## Static Files (quotes from the movies/books/etc)
 
+## Static Files (quotes from the movies/books/etc)
 
 ## Forms + Server (order a book)
 
@@ -52,3 +51,7 @@
 - Merchandise
   - board games
   - toys
+
+# working with multiple js files and breaking them out
+
+# store port in dotenv file

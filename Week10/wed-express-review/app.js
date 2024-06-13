@@ -1,5 +1,6 @@
 // add express so we can use it
 // "if you don't import it, it doesn't exist in the context of this app.js file"
+require("dotenv").config();
 const express = require("express"); //importing from node_modules/express/index.js from its exports statement
 const cors = require("cors"); // importing from node_modules/cors/index.js from its exports command
 
@@ -59,7 +60,7 @@ app.use(cors());
 app.use(express.json()); // lets us interpret json as objects and populates req.body from the body json
 app.use(express.urlencoded({ extended: false })); // only for URL encoded POSTs from a form - ?name=bob&phone=call
 
-const PORT = 4000;
+const PORT = process.env.port;
 const HOST = "127.0.0.1"; // localhost - or your computer
 
 // STATIC FILES
