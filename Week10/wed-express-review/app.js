@@ -3,7 +3,7 @@
 require("dotenv").config();
 const express = require("express"); //importing from node_modules/express/index.js from its exports statement
 const cors = require("cors"); // importing from node_modules/cors/index.js from its exports command
-
+const episodeRoutes = require("./routes/episodes");
 // we could load this from our jsondb using something like
 // https://stackoverflow.com/questions/32261070/node-express-trying-to-send-static-json-file-to-api-endpoint
 const merch = {
@@ -61,6 +61,7 @@ app.use(express.json()); // lets us interpret json as objects and populates req.
 app.use(express.urlencoded({ extended: false })); // only for URL encoded POSTs from a form - ?name=bob&phone=call
 
 const PORT = process.env.port;
+const DATABASE = process.env.database; //dont do this for the project
 const HOST = "127.0.0.1"; // localhost - or your computer
 
 // STATIC FILES
@@ -111,6 +112,9 @@ app.get("/book/search", (request, response) => {
   // use thunderclient localhost:4000/book/search?publicationYear=1994&titleContains=Slappy
   response.json(bookFound);
 });
+
+// extracting book search using controllers and routes but using episodes as example
+app.use("episodes", episodeRoutes);
 
 //listen to traffic from browser/postman/thunderclient so I can serve it up
 app.listen(PORT, HOST, () =>
