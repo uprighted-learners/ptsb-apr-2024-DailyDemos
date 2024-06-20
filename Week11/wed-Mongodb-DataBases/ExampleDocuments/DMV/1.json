@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "John Doe",
+  "points": 13,
+  "metaData": {
+    "initalApplicationDate": "01/01/2010",
+    "interactionsWithCops": 20
+  }
+}

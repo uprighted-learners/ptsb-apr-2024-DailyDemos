@@ -1,0 +1,4 @@
+_id,id,name,points,metaData.initalApplicationDate,metaData.interactionsWithCops,AndNow
+6670be3d70c9148b11bf4c4f,1,John,13,01/01/2010,20,
+6670be4270c9148b11bf4c50,1,Jane,0,01/01/2010,,
+6670c58370c9148b11bf4c59,,,,,,ForSomethingCompletelyDifferent
