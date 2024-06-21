@@ -1,5 +1,5 @@
 // pull in the client for mongo so we can interact with the server
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const express = require("express");
 require("dotenv").config();
 const app = express();
@@ -12,7 +12,9 @@ const PORT = 5432;
 // debug it
 console.log("Env DB: ", process.env.DATABASE);
 
-let client = new MongoClient(process.env.DATABASE);
+const client = new MongoClient(process.env.DATABASE, {
+  useUnifiedTopology: true,
+});
 
 async function dbConnect() {
   await client.connect();
@@ -24,6 +26,15 @@ async function dbConnect() {
   return collection;
 }
 
+async function runQuery() {
+  await client.connect();
+  const database = await client.db("test");
+  const collection = await database.collection("inventory");
+  //insert query here
+  await client.close();
+}
+
+// MOVIES EXAMPLE
 app.post("/create", async (req, res) => {
   const newMovie = req.body; // take in the json body from req
   const movieCollection = await dbConnect(); //grab the movie collection so we can do something with it
@@ -31,6 +42,21 @@ app.post("/create", async (req, res) => {
   client.close(); // makes sure we dont hang and prevent other issues
   res.send();
 });
+
+app.get("/movies", async (req, res) => {
+  const movieCollection = await dbConnect();
+
+  const results = [];
+
+  let movieList = await movieCollection.find({});
+
+  await movieList.forEach((movie) => {
+    results.push(movie);
+  });
+  res.json(results);
+});
+
+// INVENTORY/QUERY EXAMPLES
 
 app.listen(PORT, HOST, () =>
   console.log(`Server listening on ${HOST}:${PORT}`)
