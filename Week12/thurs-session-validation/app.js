@@ -6,6 +6,7 @@ const { dbConnect } = require("./db");
 const PORT = 4000;
 const HOST = "127.0.0.1";
 console.log(process.env.DB);
+console.log("filename: app.js", "line 9,", PORT)
 
 const authController = require("./controllers/auth");
 const routesController = require("./controllers/routes");
