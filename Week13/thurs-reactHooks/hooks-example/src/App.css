@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.radio-buttons {
+  margin-bottom: 20px;
+}
+
+.radio-buttons label {
+  margin-right: 10px;
+}
+
+.image-container img {
+  max-width: 500px;
+  height: auto;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+}

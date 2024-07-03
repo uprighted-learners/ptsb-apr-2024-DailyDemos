@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react";
 function App() {
   // add our state hook
-  const [riskLevel, setRiskLevel] = useState("low");
+  const [riskLevel, setRiskLevel] = useState("extreme");
 
   // add our icons for our 5 states of fire risk
   const lowRiskImageUrl =
@@ -37,7 +36,35 @@ function App() {
 
   return (
     <div className="App">
-      <img src={getImageByRiskLevel("high")}></img>
+      <h1>Smokey the Bear warns you!</h1>
+      <div className="radio-buttons">
+        <label>
+          Low Risk
+          <input
+            type="radio"
+            value="low"
+            checked={riskLevel === "low"}
+            onChange={() => setRiskLevel("low")}
+          />
+        </label>
+      </div>
+      <div className="radio-buttons">
+        <label>
+          Moderate Risk
+          <input
+            type="radio"
+            value="moderate"
+            checked={riskLevel === "moderate"}
+            onChange={() => setRiskLevel("moderate")}
+          />
+        </label>
+      </div>
+      <div className="image-container">
+        <img
+          src={getImageByRiskLevel(riskLevel)}
+          alt={`Smokey the Bear - ${riskLevel} risk`}
+        />
+      </div>
     </div>
   );
 }
