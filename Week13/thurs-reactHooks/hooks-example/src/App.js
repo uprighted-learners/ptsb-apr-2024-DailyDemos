@@ -1,16 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+
 function App() {
-  // add our state hook
-
   const [riskLevel, setRiskLevel] = useState("extreme");
-
   const [weather, setWeather] = useState("sunny");
   const [lat, setLat] = useState(12.1);
   const [long, setLong] = useState(22.1);
-
-  // dont mark callback function as async
-  // this runs just once because the dependency array is include and empty
 
   useEffect(() => {
     const url = "https://swapi.dev/api/people/1";
@@ -21,7 +16,6 @@ function App() {
           throw new Error("Something went wrong");
         }
         const data = await response.json();
-        // this will only put data into the console, no interaction with the component
         console.log(data);
       } catch (ex) {
         // setError state
@@ -31,7 +25,6 @@ function App() {
     fetchSwapi();
   }, []);
 
-  // this will rerun on each rerender i.e. when the radio buttons get changed
   useEffect(() => {
     const url = "https://swapi.dev/api/people/2";
     const fetchSwapi = async () => {
@@ -41,7 +34,6 @@ function App() {
           throw new Error("Something went wrong");
         }
         const data = await response.json();
-        // this will only put data into the console, no interaction with the component
         console.log(data);
       } catch (ex) {
         // setError state
@@ -52,9 +44,7 @@ function App() {
   });
 
   useEffect(() => {
-    //TODO - inject lat an long into url
-    const url =
-      "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true";
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`;
     const fetchWeather = async () => {
       try {
         const response = await fetch(url);
@@ -62,7 +52,6 @@ function App() {
           throw new Error("Something went wrong");
         }
         const data = await response.json();
-        // this will only put data into the console, no interaction with the component
         setWeather(data.current_weather.temperature);
       } catch (ex) {
         // setError state
@@ -72,7 +61,6 @@ function App() {
     fetchWeather();
   }, [lat, long]);
 
-  // add our icons for our 5 states of fire risk
   const lowRiskImageUrl =
     "https://www.fs.usda.gov/Internet/FSE_MEDIA/fseprd535428.png";
   const moderateRiskImageUrl =
@@ -83,7 +71,6 @@ function App() {
     "https://plus.unsplash.com/premium_photo-1661854760489-3f63e4d83eab?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   const extremeRiskImageUrl =
     "https://www.wate.com/wp-content/uploads/sites/42/2022/04/SEVIER-COUNTY-EMA_TDF_FIRE-DANGER-SCALE-FOR-MONDAY-4-APRIL-2022_040422.jpg?resize=349,289";
-  // add the image grabber function
 
   function getImageByRiskLevel(risk) {
     switch (risk) {
@@ -133,9 +120,25 @@ function App() {
           alt={`Smokey the Bear - ${riskLevel} risk`}
         />
       </div>
-      {/* <h3>This is the temp: {weather}</h3> */}
-
-      {/* todo set lat long from here */}
+      <div className="input-container">
+        <label>
+          Latitude:
+          <input
+            type="number"
+            value={lat}
+            onChange={(e) => setLat(parseFloat(e.target.value))}
+          />
+        </label>
+        <label>
+          Longitude:
+          <input
+            type="number"
+            value={long}
+            onChange={(e) => setLong(parseFloat(e.target.value))}
+          />
+        </label>
+      </div>
+      <h3>This is the temp: {weather}</h3>
     </div>
   );
 }
