@@ -1,8 +1,76 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 function App() {
   // add our state hook
+
   const [riskLevel, setRiskLevel] = useState("extreme");
+
+  const [weather, setWeather] = useState("sunny");
+  const [lat, setLat] = useState(12.1);
+  const [long, setLong] = useState(22.1);
+
+  // dont mark callback function as async
+  // this runs just once because the dependency array is include and empty
+
+  useEffect(() => {
+    const url = "https://swapi.dev/api/people/1";
+    const fetchSwapi = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        const data = await response.json();
+        // this will only put data into the console, no interaction with the component
+        console.log(data);
+      } catch (ex) {
+        // setError state
+      }
+    };
+
+    fetchSwapi();
+  }, []);
+
+  // this will rerun on each rerender i.e. when the radio buttons get changed
+  useEffect(() => {
+    const url = "https://swapi.dev/api/people/2";
+    const fetchSwapi = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        const data = await response.json();
+        // this will only put data into the console, no interaction with the component
+        console.log(data);
+      } catch (ex) {
+        // setError state
+      }
+    };
+
+    fetchSwapi();
+  });
+
+  useEffect(() => {
+    //TODO - inject lat an long into url
+    const url =
+      "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true";
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        const data = await response.json();
+        // this will only put data into the console, no interaction with the component
+        setWeather(data.current_weather.temperature);
+      } catch (ex) {
+        // setError state
+      }
+    };
+
+    fetchWeather();
+  }, [lat, long]);
 
   // add our icons for our 5 states of fire risk
   const lowRiskImageUrl =
@@ -65,6 +133,9 @@ function App() {
           alt={`Smokey the Bear - ${riskLevel} risk`}
         />
       </div>
+      {/* <h3>This is the temp: {weather}</h3> */}
+
+      {/* todo set lat long from here */}
     </div>
   );
 }
