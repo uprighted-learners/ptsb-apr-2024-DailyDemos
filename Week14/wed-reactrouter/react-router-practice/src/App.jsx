@@ -6,6 +6,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
+import User from "./User";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/user/:id" element={<User />} />
+        {/* How to add 404 not found component */}
       </Routes>
     </>
   );
